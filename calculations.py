@@ -31,8 +31,8 @@ def get_legendary_table():
     return legendary_table
 
 
-def get_legendary_shards():
-    val = 0
+def get_legendary_bonus():
+    val = 100
 
     for legend, count in legendary_table.items():
         if count == 0:
