@@ -1,4 +1,5 @@
 from data.shards import LEGENDARY_SHARDS, LEVEL_SHARDS, FEAT_SHARDS_MULTIPLIER, BASE_VALUE, LEGENDARY_SET_SHARDS
+from math import ceil
 
 legendary_table = {x: 0 for x in LEGENDARY_SHARDS.keys()}
 
@@ -51,3 +52,10 @@ def get_legendary_bonus():
             val += value
 
     return val
+
+
+def get_target_t1s(target, current, level, feats):
+    if target <= current:
+        return 0
+
+    return ceil((target - current) / (level * feats * LEGENDARY_SHARDS['Lich']['extra']/ 100.))
