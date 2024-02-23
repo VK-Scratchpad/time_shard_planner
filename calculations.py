@@ -54,8 +54,8 @@ def get_legendary_bonus():
     return val
 
 
-def get_target_t1s(target, current, level, feats):
-    if target <= current:
+def get_target_t1s(target, current, leftover, level, feats, other):
+    if target <= current + leftover:
         return 0
 
-    return ceil((target - current) / (level * feats * LEGENDARY_SHARDS['Lich']['extra']/ 100.))
+    return ceil((target - (current + leftover)) / (level * feats * other * LEGENDARY_SHARDS['Lich']['extra']/ 100.))
